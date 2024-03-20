@@ -37,6 +37,6 @@ class CustomHook(BuildHookInterface):
                     shutil.copy(os.path.join(cur_path, logo), td)
                 except FileNotFoundError:
                     print("Custom logo files not found. Default logos will be used.")
-
+            shutil.copy(os.path.join(cur_path, "quarto_setup_cell"), td)
             KernelSpecManager().install_kernel_spec(td, 'echo', user=False, prefix=prefix)
 

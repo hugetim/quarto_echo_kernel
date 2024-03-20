@@ -1,5 +1,13 @@
+quarto_echo_kernel
+==================
+
+This is a fork of the echo_kernel from the Jupyter project. 
+It is intended to be used as a simple example of a Jupyter kernel that can take advantage of the specific ways in which Quarto communicates additional information during execution.
+
+Below, you will find the original README from the `echo_kernel <https://github.com/jupyter/echo_kernel/>`_ project.
+
 echo_kernel
-===========
+-----------
 
 ``echo_kernel`` is a simple example of a Jupyter kernel. This repository
 complements the documentation on wrapper kernels here:
