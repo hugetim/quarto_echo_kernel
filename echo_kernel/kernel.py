@@ -33,6 +33,12 @@ class EchoKernel(Kernel):
             stream_content = {'name': 'stdout', 'text': code}
             self.send_response(self.iopub_socket, 'stream', stream_content)
 
+        # Quarto executes inline code via user_expressions
+        user_expr_results = {}
+        if user_expressions:
+            for key, expression in user_expressions.items():
+                user_expr_results[key] = dict(data={'text/plain': expression}, metadata={})
+                       
         # in this example, we are using a very simple way to
         # detect if a cell is a setup cell. In a real kernel, you
         # would want to use a more robust method to detect setup cells
@@ -53,5 +59,5 @@ class EchoKernel(Kernel):
                 # The base class increments the execution count
                 'execution_count': self.execution_count,
                 'payload': [],
-                'user_expressions': {},
+                'user_expressions': user_expr_results,
                }
