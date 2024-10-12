@@ -37,7 +37,7 @@ class EchoKernel(Kernel):
         user_expr_results = {}
         if user_expressions:
             for key, expression in user_expressions.items():
-                user_expr_results[key] = dict(data={'text/plain': expression}, metadata={})
+                user_expr_results[key] = dict(status='ok', data={'text/plain': expression}, metadata={})
                        
         # in this example, we are using a very simple way to
         # detect if a cell is a setup cell. In a real kernel, you
